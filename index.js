@@ -20,3 +20,18 @@ function fibs(iterations) {
 }
 
 console.log(fibs(8));
+
+
+function fibRec(n) {
+    if (n == 1) {return [0]}
+    else {
+        const recursiveValue = fibRec(n-1)
+        let previous1st = Number(recursiveValue.slice(-1)) || 1;
+        let previous2nd = Number(recursiveValue[recursiveValue.length-2]) || 0;
+        let total = previous1st + previous2nd;
+        recursiveValue.push(total)
+        return recursiveValue;
+    }
+}
+
+console.log(fibRec(8))
