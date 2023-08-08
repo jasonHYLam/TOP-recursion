@@ -35,3 +35,26 @@ function fibRec(n) {
 }
 
 console.log(fibRec(8))
+
+let testArray = [2,6,4,7,1,3,5,9,8]
+
+function mergeSort(array) {
+    if (array.length === 1) {
+        console.log('hey')
+        return array;
+    }
+    else {
+        const half = Math.ceil(array.length/2)
+        // split array in half
+        // call mergeSort on the left half
+        const leftHalf = array.slice(0, half)
+        const rightHalf = array.slice(half)
+        console.log(leftHalf)
+        console.log(rightHalf)
+        // call mergeSort on the right half
+        //for each element in left half and right half, see which is smaller
+    }
+
+}
+
+mergeSort(testArray)
