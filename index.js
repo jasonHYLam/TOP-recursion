@@ -19,7 +19,7 @@ function fibs(iterations) {
     return array
 }
 
-console.log(fibs(8));
+// console.log(fibs(8));
 
 
 function fibRec(n) {
@@ -34,11 +34,12 @@ function fibRec(n) {
     }
 }
 
-console.log(fibRec(8))
+// console.log(fibRec(8))
 
-let testArray = [2,6,4,7,1,3,5,9,8]
+let testArray = [2,6,4,7,1,2, 3,5,9,8]
 
 function mergeSort(array) {
+    // console.log(array)
     if (array.length === 1) {
         return array;
     }
@@ -53,27 +54,37 @@ function mergeSort(array) {
         const rightHalf = array.slice(half)
         let sortedRightHalf = mergeSort(rightHalf);
 
-        console.log(sortedLeftHalf)
-        console.log(sortedRightHalf)
         //for each element in left half and right half, see which is smaller
 
-        // let mergedArray = [];
-        // while (sortedLeftHalf[0] || sortedRightHalf[0]) {
-        //     if (sortedLeftHalf[0] < sortedRightHalf[0]) {
-        //         mergedArray.push(sortedLeftHalf[0])
-        //         sortedLeftHalf.shift()
-        //     } else if (sortedRightHalf[0] < sortedLeftHalf[0]) {
-        //         mergedArray.push(sortedRightHalf[0])
-        //         sortedRightHalf.shift()
-        //     }
-        // }
-        // return mergedArray;
+        let mergedArray = [];
+        while (sortedLeftHalf[0] || sortedRightHalf[0]) {
+            if (sortedLeftHalf[0] < sortedRightHalf[0]) {
+                mergedArray.push(sortedLeftHalf[0])
+                sortedLeftHalf.shift()
+            } else if (sortedRightHalf[0] < sortedLeftHalf[0]) {
+                mergedArray.push(sortedRightHalf[0])
+                sortedRightHalf.shift()
+            } else if (sortedLeftHalf[0] == sortedRightHalf[0]) {
+                mergedArray.push(sortedLeftHalf[0])
+                mergedArray.push(sortedRightHalf[0])
+                sortedLeftHalf.shift()
+                sortedRightHalf.shift()
+            } else if (!sortedLeftHalf[0]) {
+                mergedArray.push(sortedRightHalf[0])
+                sortedRightHalf.shift()
+            } else if (!sortedRightHalf[0]) {
+                mergedArray.push(sortedLeftHalf[0])
+                sortedLeftHalf.shift()
+            }
+            }
+        return mergedArray;
     }
 
-    // TODO: fix infinite loop
 }
 
-// mergeSort(testArray)
+console.log(
+mergeSort(testArray)
+)
 
 function testSplit(array) {
     console.log(array)
